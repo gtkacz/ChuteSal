@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="608px" preserveAspectRatio="none" style="width:349px;height:608px;background:#FFFFFF;" version="1.1" viewBox="0 0 349 608" width="349px" zoomAndPan="magnify"><defs/><g><!--MD5=[ff72d5b1baf0f8ae7f1d253b768c7c95]
+cluster ChuteSal--><g id="cluster_ChuteSal"><path d="M130.5,6 L194.5,6 A3.75,3.75 0 0 1 197,8.5 L204,29.6094 L339.5,29.6094 A2.5,2.5 0 0 1 342,32.1094 L342,598.5 A2.5,2.5 0 0 1 339.5,601 L130.5,601 A2.5,2.5 0 0 1 128,598.5 L128,8.5 A2.5,2.5 0 0 1 130.5,6 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="128" x2="204" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="63" x="132" y="22.5332">ChuteSal</text></g><g id="elem_UC1"><ellipse cx="234.9775" cy="427.7955" fill="#F1F1F1" rx="79.4775" ry="18.2955" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="177.256" y="431.8709">Cadastra unidade</text></g><g id="elem_UC2"><ellipse cx="234.8297" cy="284.0659" fill="#F1F1F1" rx="90.8297" ry="20.5659" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="164.8297" y="287.7945">Cadastra campeonato</text></g><g id="elem_UC3"><ellipse cx="235.1476" cy="356.9295" fill="#F1F1F1" rx="72.6476" ry="16.9295" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="184.6476" y="361.4461">Cadastra times</text></g><g id="elem_UC4"><ellipse cx="234.9775" cy="60.7955" fill="#F1F1F1" rx="79.4775" ry="18.2955" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="177.256" y="64.8709">Gerencia partidas</text></g><g id="elem_UC5"><ellipse cx="235.0873" cy="134.1175" fill="#F1F1F1" rx="83.5873" ry="19.1175" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123" x="173.5873" y="137.846">Registra resultados</text></g><g id="elem_UC6"><ellipse cx="235.1463" cy="569.0942" fill="#F1F1F1" rx="61.6463" ry="15.5942" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="197.1463" y="573.6108">Divulgação</text></g><g id="elem_UC7"><ellipse cx="234.7877" cy="500.0575" fill="#F1F1F1" rx="78.2877" ry="18.0575" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="178.0149" y="504.2774">Visualizar tabelas</text></g><g id="elem_UC8"><ellipse cx="234.8923" cy="207.8785" fill="#F1F1F1" rx="87.3923" ry="19.8785" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="168.8923" y="211.607">Gerencias inscrições</text></g><!--MD5=[75aabecaf70a71b0ff4b871eebba9af6]
+entity o--><g id="elem_o"><ellipse cx="45" cy="215.5" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M45,223.5 L45,250.5 M32,231.5 L58,231.5 M45,250.5 L32,265.5 M45,250.5 L58,265.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="6" y="281.5332">Organizador</text></g><!--MD5=[e32773a0da76c445e84e5885468a4484]
+entity e--><g id="elem_e"><ellipse cx="45" cy="397.5" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M45,405.5 L45,432.5 M32,413.5 L58,413.5 M45,432.5 L32,447.5 M45,432.5 L58,447.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42" x="24" y="463.5332">Escola</text></g><!--MD5=[be5750da26e06623bc49653cefaf97c7]
+entity p--><g id="elem_p"><ellipse cx="45" cy="524.5" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M45,532.5 L45,559.5 M32,540.5 L58,540.5 M45,559.5 L32,574.5 M45,559.5 L58,574.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="22" y="590.5332">Publico</text></g><!--MD5=[e10450b737d50dbffc017dbfd70a058a]
+link e to UC1--><g id="link_e_UC1"><path d="M66.12,428 C86.36,428 118.93,428 150.03,428 " fill="none" id="e-to-UC1" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="155.41,428,146.41,424,150.41,428,146.41,432,155.41,428" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e9d29c36921007856a3380be044c7a97]
+link p to UC6--><g id="link_p_UC6"><path d="M68.3,556.66 C93.33,558.52 135.06,561.63 170.38,564.26 " fill="none" id="p-to-UC6" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="175.54,564.65,166.862,559.9924,170.5538,564.2785,166.2677,567.9703,175.54,564.65" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7d925fd1b29bb43edd295ccebb14689a]
+link p to UC7--><g id="link_p_UC7"><path d="M68.3,548.47 C95.86,540.41 143.64,526.43 180.84,515.55 " fill="none" id="p-to-UC7" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="185.78,514.11,176.0164,512.8168,180.9839,515.5231,178.2775,520.4906,185.78,514.11" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7b35c17934cf55cff7553a21602e122b]
+link o to UC1--><g id="link_o_UC1"><path d="M56.75,285.19 C67.62,317.83 87.54,363.3 120,391 C133.05,402.14 149.53,409.94 165.86,415.4 " fill="none" id="o-to-UC1" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="170.93,417.02,163.5851,410.4585,166.1697,415.4904,161.1378,418.075,170.93,417.02" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e3583ba8776466efefa880d92f6cc6d3]
+link o to UC2--><g id="link_o_UC2"><path d="M84.04,253.69 C106.37,258.2 135.31,264.05 161.8,269.41 " fill="none" id="o-to-UC2" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="166.72,270.4,158.7016,264.6811,161.821,269.4002,157.1019,272.5196,166.72,270.4" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[908af89810cb167eba2b7ce977de52bd]
+link o to UC3--><g id="link_o_UC3"><path d="M77.08,285.18 C89.26,298.43 104.13,312.3 120,322 C136.39,332.01 155.88,339.36 174.06,344.67 " fill="none" id="o-to-UC3" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="179.15,346.11,171.5729,339.8181,174.3376,344.7534,169.4023,347.518,179.15,346.11" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a8af5aacf6e3ca3874e98f205e042c50]
+link o to UC4--><g id="link_o_UC4"><path d="M56.1,206.67 C66.68,173.03 86.54,125.64 120,97 C132.72,86.12 148.74,78.52 164.72,73.21 " fill="none" id="o-to-UC4" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="169.67,71.64,159.8817,70.5499,164.9042,73.1525,162.3016,78.1751,169.67,71.64" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d0f0abe418ab813fc8b93596c5af3de7]
+link o to UC5--><g id="link_o_UC5"><path d="M77.12,206.89 C89.31,193.65 104.17,179.76 120,170 C134.81,160.87 152.15,153.86 168.76,148.56 " fill="none" id="o-to-UC5" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="173.9,146.97,164.1177,145.8265,169.1261,148.4565,166.4961,153.4648,173.9,146.97" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[666423a9dffdf31360d754764cdc50fb]
+link o to UC8--><g id="link_o_UC8"><path d="M84.04,238.31 C106.97,233.68 136.89,227.63 163.96,222.16 " fill="none" id="o-to-UC8" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="168.98,221.14,159.3679,218.9935,164.0782,222.1261,160.9456,226.8364,168.98,221.14" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[2617cc304dca5f272aab8e661c341ac4]
+@startuml usecases
+left to right direction
+
+actor Organizador as o
+actor Escola as e
+actor Publico as p
+
+package ChuteSal {
+  usecase "Cadastra unidade" as UC1
+  usecase "Cadastra campeonato" as UC2
+  usecase "Cadastra times" as UC3
+  usecase "Gerencia partidas" as UC4
+  usecase "Registra resultados" as UC5
+  usecase "Divulgação" as UC6
+  usecase "Visualizar tabelas" as UC7
+  usecase "Gerencias inscrições" as UC8
+}
+e - -> UC1
+p - -> UC6
+p - -> UC7
+o - -> UC1
+o - -> UC2
+o - -> UC3
+o - -> UC4
+o - -> UC5
+o - -> UC8
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 14:01:30 BRT 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

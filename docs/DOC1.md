@@ -1,6 +1,7 @@
 # Documento de especificação
 
 ## Casos de uso
+![Diagrama de casos de uso](./img/usecases.svg)
 
 ## Protótipos da interface com o usuário
 
