@@ -1,8 +1,3 @@
-# Documento de especificação
-
-## Casos de uso
-![Diagrama de casos de uso](./img/usecases.svg)
-
 1. Cadastrar Unidade (UC1):
 O Organizador pode cadastrar informações sobre uma nova unidade, incluindo nome e endereço. Isso é necessário para a gestão dos campeonatos.
 
@@ -26,66 +21,3 @@ O Público em geral tem a capacidade de visualizar as tabelas de classificação
 
 8. Gerenciar Inscrições (UC8):
 O Organizador pode gerenciar as inscrições dos times nos campeonatos, verificando e controlando quem está registrado para participar. Isso é importante para garantir a organização adequada dos jogos.
-
-## Protótipos da interface com o usuário
-
-## Modelo de domínio
-
-## Arquitetura
-
-## Diagrama de classes
-```mermaid
-classDiagram
-  class Unidade {
-    + nome: String
-    + endereco: String
-  }
-
-  class Funcionario {
-    + nome: String
-    + unidade: Unidade
-  }
-
-  class Quadra {
-    + nome: String
-    + unidade: Unidade
-  }
-
-  class Campeonato {
-    + nome: String
-    + unidade: Unidade
-    + quadra: Quadra
-    + cup_manager: Funcionario
-  }
-
-  class Time {
-    + nome: String
-    + campeonato: Campeonato
-  }
-
-  class Jogo {
-    + data: Date
-    + campeonato: Campeonato
-    + time1: Time
-    + time2: Time
-  }
-
-  class Jogador {
-    + nome: String
-    + time: Time
-  }
-
-  Unidade "1" --> "1" Funcionario: cup_manager
-  Unidade "1" --> "1" Quadra: quadra
-  Unidade "1" --> "1" Campeonato: unidade
-  Campeonato "1" --> "1" Quadra: quadra
-  Campeonato "1" --> "1" Funcionario: cup_manager
-  Campeonato "1" --> "1" Unidade: unidade
-  Time "1" --> "1" Campeonato: campeonato
-  Jogo "1" --> "1" Campeonato: campeonato
-  Jogo "1" --> "1" Time: time1
-  Jogo "1" --> "1" Time: time2
-  Jogador "1" --> "1" Time: time
-```
-
-## Diagrama de sequência
