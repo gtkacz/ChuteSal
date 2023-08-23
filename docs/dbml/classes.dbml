@@ -1,0 +1,58 @@
+Table Unidade {
+  id serial [pk]
+  nome varchar [unique]
+  endereco varchar
+}
+
+Table Funcionario {
+  id serial [pk]
+  nome varchar
+  unidade_id int [ref: > Unidade.id]
+}
+
+Table Quadra {
+  id serial [pk]
+  nome varchar
+  unidade_id int [ref: > Unidade.id]
+}
+
+Table Campeonato {
+  id serial [pk]
+  nome varchar
+  unidade_id int [ref: > Unidade.id]
+  quadra_id int [ref: > Quadra.id]
+  cup_manager_id int [ref: > Funcionario.id]
+  periodo_inscricao_comeco date
+  periodo_inscricao_fim date
+  periodo_jogos_comeco date
+  periodo_jogos_fim date
+  data_inicio_divulgacao date
+}
+
+Table Time {
+  id serial [pk]
+  nome varchar
+  campeonato_id int [ref: > Campeonato.id]
+  posicao int
+}
+
+Table Jogo {
+  id serial [pk]
+  campeonato_id int [ref: > Campeonato.id]
+  time1_id int [ref: > Time.id]
+  time2_id int [ref: > Time.id]
+  data date
+  horario time
+  rodada int
+  resultado_time1 int
+  resultado_time2 int
+  is_over boolean
+}
+
+Table Jogador {
+  id serial [pk]
+  nome varchar
+  apelido varchar
+  data_nascimento date
+  time_id int [ref: > Time.id]
+}
