@@ -28,8 +28,15 @@ O Público em geral tem a capacidade de visualizar as tabelas de classificação
 O Organizador pode gerenciar as inscrições dos times nos campeonatos, verificando e controlando quem está registrado para participar. Isso é importante para garantir a organização adequada dos jogos.
 
 ## Protótipos da interface com o usuário
+[Protótipo](./pdf/Wireframes%20ChuteSal.pdf)  
+![Página 1](./img/wireframe_1.png)
+![Página 2](./img/wireframe_2.png)
+![Página 3](./img/wireframe_3.png)
+![Página 4](./img/wireframe_4.png)
+![Página 5](./img/wireframe_5.png)
 
 ## Modelo de domínio
+![Modelo de domínio](./img/dominio.jpg)
 
 ## Arquitetura
 
@@ -89,3 +96,4 @@ classDiagram
 ```
 
 ## Diagrama de sequência
+![Diagrama de sequência](./img/sequencia.jpg)
