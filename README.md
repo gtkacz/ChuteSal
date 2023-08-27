@@ -5,6 +5,7 @@
         <h3 align="center">Sistemas de Informação</a>
         <h3 align="center">Prática Profissional em Análise e Desenvolvimento de Sistemas</a>
         <h3 align="center">Turma 05J</a>
+        <hr>
         <h4 align="center">Claudio Marcio de Oliveria Filho</a>
         <h4 align="center">Daniel Aloia Plastina</a>
         <h4 align="center">Gabriel Mitelman Tkacz</a>
@@ -12,5 +13,3 @@
         </h4>
     </p>
 </center>
-
-<hr>

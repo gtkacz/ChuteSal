@@ -39,7 +39,12 @@ O Organizador pode gerenciar as inscrições dos times nos campeonatos, verifica
 ![Modelo de domínio](./img/dominio.jpg)
 
 ## Arquitetura
-
+- Dados serão armazenados em um banco de dados relacional SQLite, operado através de um ORM.
+- Back-end será em Python 3.11 usando Django como ORM e Django Rest Framework para expor os dados via API REST.
+- Front-end web será em javascript, utilizando o framework Vue 3 e a biblioteca Vuetify para adequar os padrões de design ao Material Design do Google.
+- Back-end será deployado utilizando Docker e docker-compose.
+- Website será hospedado em um EC2 da AWS, com o back-end, o front-end e o banco de dados rodando na mesma máquina visando a redução de custos.
+- nginx será usado para a realização de reverse proxy.
 ## Diagrama de classes
 ```mermaid
 classDiagram
