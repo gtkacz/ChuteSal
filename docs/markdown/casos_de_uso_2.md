@@ -1,7 +1,4 @@
-# Documento de especificação
-
-## Casos de uso
-![Diagrama de casos de uso](./img/usecases.svg)
+# Modelo de caso de uso
 
 ### 1. Casos de uso por ator: 
 
@@ -429,80 +426,3 @@
 | 1.2 O Organizador tenta acessar a plataforma e selecionar um campeonato, mas a conexão com o servidor falha. | |
 | | 1.3 O sistema exibe uma mensagem de erro informando que a operação não pode ser concluída devido a problemas de conexão. |
 | | 1.4 O sistema oferece a opção de tentar novamente ou entrar em contato com o suporte. |
-
-
-## Protótipos da interface com o usuário
-[Protótipo](./pdf/Wireframes%20ChuteSal.pdf)  
-![Página 1](./img/wireframe_1.png)
-![Página 2](./img/wireframe_2.png)
-![Página 3](./img/wireframe_3.png)
-![Página 4](./img/wireframe_4.png)
-![Página 5](./img/wireframe_5.png)
-
-## Modelo de domínio
-![Modelo de domínio](./img/dominio.jpg)
-
-## Arquitetura
-- Dados serão armazenados em um banco de dados relacional SQLite, operado através de um ORM.
-- Back-end será em Python 3.11 usando Django como ORM e Django Rest Framework para expor os dados via API REST.
-- Front-end web será em javascript, utilizando o framework Vue 3 e a biblioteca Vuetify para adequar os padrões de design ao Material Design do Google.
-- Back-end será deployado utilizando Docker e docker-compose.
-- Website será hospedado em um EC2 da AWS, com o back-end, o front-end e o banco de dados rodando na mesma máquina visando a redução de custos.
-- nginx será usado para a realização de reverse proxy.
-## Diagrama de classes
-```mermaid
-classDiagram
-  class Unidade {
-    + nome: String
-    + endereco: String
-  }
-
-  class Funcionario {
-    + nome: String
-    + unidade: Unidade
-  }
-
-  class Quadra {
-    + nome: String
-    + unidade: Unidade
-  }
-
-  class Campeonato {
-    + nome: String
-    + unidade: Unidade
-    + quadra: Quadra
-    + cup_manager: Funcionario
-  }
-
-  class Time {
-    + nome: String
-    + campeonato: Campeonato
-  }
-
-  class Jogo {
-    + data: Date
-    + campeonato: Campeonato
-    + time1: Time
-    + time2: Time
-  }
-
-  class Jogador {
-    + nome: String
-    + time: Time
-  }
-
-  Unidade "1" --> "1" Funcionario: cup_manager
-  Unidade "1" --> "1" Quadra: quadra
-  Unidade "1" --> "1" Campeonato: unidade
-  Campeonato "1" --> "1" Quadra: quadra
-  Campeonato "1" --> "1" Funcionario: cup_manager
-  Campeonato "1" --> "1" Unidade: unidade
-  Time "1" --> "1" Campeonato: campeonato
-  Jogo "1" --> "1" Campeonato: campeonato
-  Jogo "1" --> "1" Time: time1
-  Jogo "1" --> "1" Time: time2
-  Jogador "1" --> "1" Time: time
-```
-
-## Diagrama de sequência
-![Diagrama de sequência](./img/sequencia.jpg)
