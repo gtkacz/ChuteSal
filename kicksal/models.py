@@ -4,8 +4,6 @@ from django.db import models
 class Unidade(models.Model):
     nome = models.CharField(max_length=50, unique=True)
     endereco = models.CharField(max_length=150)
-    cup_manager = models.OneToOneField(
-        'Funcionario', on_delete=models.CASCADE, related_nome='cup_manager')  # type: ignore
 
     def __str__(self):
         return self.nome
@@ -13,7 +11,7 @@ class Unidade(models.Model):
 
 class Funcionario(models.Model):
     nome = models.CharField(max_length=50)
-    unidade = models.ForeignKey(Unidade, on_delete=models.CASCADE)
+    unidade = models.OneToOneField(Unidade, on_delete=models.CASCADE, related_name='unidade')
     is_cup_manager = models.BooleanField(default=False)
 
     def __str__(self):
@@ -39,7 +37,6 @@ class Campeonato(models.Model):
     periodo_jogos_comeco = models.DateField()
     periodo_jogos_fim = models.DateField()
     data_inicio_divulgacao = models.DateField()
-    quadra = models.ForeignKey(Quadra, on_delete=models.CASCADE)
     cup_manager = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -84,18 +81,17 @@ class Time(models.Model):
         return self.nome
 
     class Meta:
-        unique_together = (('nome', 'campeonato'), ('posicao', 'campeonato'))
+        unique_together = (('nome', 'campeonato'),)
 
 
 class Jogo(models.Model):
     campeonato = models.ForeignKey(Campeonato, on_delete=models.CASCADE)
-    time1 = models.ForeignKey(
-        Time, on_delete=models.CASCADE, related_name='time1')
-    time2 = models.ForeignKey(
-        Time, on_delete=models.CASCADE, related_name='time2')
+    time1 = models.ForeignKey(Time, on_delete=models.CASCADE, related_name='time1')
+    time2 = models.ForeignKey(Time, on_delete=models.CASCADE, related_name='time2')
     data = models.DateField()
     horario = models.TimeField()
     rodada = models.IntegerField(default=0)
+    quadra = models.ForeignKey(Quadra, on_delete=models.CASCADE, null=True, blank=True)
     resultado_time1 = models.IntegerField(default=0)
     resultado_time2 = models.IntegerField(default=0)
     is_over = models.BooleanField(default=False)
@@ -124,7 +120,7 @@ class Jogador(models.Model):
     nome = models.CharField(max_length=50)
     apelido = models.CharField(max_length=50, null=True, blank=True)
     data_nascimento = models.DateField()
-    time = models.ForeignKey(Time, on_delete=models.CASCADE)
+    time = models.ForeignKey(Time, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.nome
