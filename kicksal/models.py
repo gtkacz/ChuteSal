@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.constraints import UniqueConstraint
+from django.db.models.query_utils import Q
 
 
 class Unidade(models.Model):
@@ -11,7 +13,8 @@ class Unidade(models.Model):
 
 class Funcionario(models.Model):
     nome = models.CharField(max_length=50)
-    unidade = models.OneToOneField(Unidade, on_delete=models.CASCADE, related_name='unidade')
+    unidade = models.OneToOneField(
+        Unidade, on_delete=models.CASCADE, related_name='unidade')
     is_cup_manager = models.BooleanField(default=False)
 
     def __str__(self):
@@ -75,23 +78,40 @@ class Campeonato(models.Model):
 class Time(models.Model):
     nome = models.CharField(max_length=50)
     campeonato = models.ForeignKey(Campeonato, on_delete=models.CASCADE)
-    posicao = models.IntegerField(default=0)
+    # posicao = models.IntegerField(default=0)
+
+    # def save(self, *args, **kwargs):
+    #     if self.posicao < 0:
+    #         raise ValueError('Posição não pode ser menor que negativa.')
+
+    #     elif self.posicao > 0:
+    #         if any(self.posicao == time.posicao for time in Time.objects.filter(campeonato=self.campeonato)):
+    #             raise ValueError('Posição já está ocupada.')
+
+    #     return super().save(*args, **kwargs)
 
     def __str__(self):
         return self.nome
 
     class Meta:
         unique_together = (('nome', 'campeonato'),)
-
+        # constraints = [
+        #     UniqueConstraint(
+        #         fields=['campeonato', 'posicao'], condition=Q(posicao__gt=0), name='unique_position'
+        #     )
+        # ]
 
 class Jogo(models.Model):
     campeonato = models.ForeignKey(Campeonato, on_delete=models.CASCADE)
-    time1 = models.ForeignKey(Time, on_delete=models.CASCADE, related_name='time1')
-    time2 = models.ForeignKey(Time, on_delete=models.CASCADE, related_name='time2')
+    time1 = models.ForeignKey(
+        Time, on_delete=models.CASCADE, related_name='time1')
+    time2 = models.ForeignKey(
+        Time, on_delete=models.CASCADE, related_name='time2')
     data = models.DateField()
     horario = models.TimeField()
     rodada = models.IntegerField(default=0)
-    quadra = models.ForeignKey(Quadra, on_delete=models.CASCADE, null=True, blank=True)
+    quadra = models.ForeignKey(
+        Quadra, on_delete=models.CASCADE, null=True, blank=True)
     resultado_time1 = models.IntegerField(default=0)
     resultado_time2 = models.IntegerField(default=0)
     is_over = models.BooleanField(default=False)
@@ -120,7 +140,8 @@ class Jogador(models.Model):
     nome = models.CharField(max_length=50)
     apelido = models.CharField(max_length=50, null=True, blank=True)
     data_nascimento = models.DateField()
-    time = models.ForeignKey(Time, on_delete=models.CASCADE, null=True, blank=True)
+    time = models.ForeignKey(
+        Time, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.nome

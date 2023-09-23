@@ -13,9 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
+from rest_framework import routers
+
+from kicksal.views import *
+
+router = routers.DefaultRouter()
+
+router.register(r'unidades', UnidadeViewSet)
+router.register(r'funcionarios', FuncionarioViewSet)
+router.register(r'quadras', QuadraViewSet)
+router.register(r'campeonatos', CampeonatoViewSet)
+router.register(r'times', TimeViewSet)
+router.register(r'jogadores', JogadorViewSet)
+router.register(r'jogos', JogoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
 ]
