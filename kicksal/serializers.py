@@ -14,7 +14,7 @@ class FuncionarioSerializer(ModelSerializer):
         model = Funcionario
         fields = '__all__'
 
-    unidade = UnidadeSerializer()
+    # unidade = UnidadeSerializer()
 
 
 class QuadraSerializer(ModelSerializer):
@@ -22,7 +22,7 @@ class QuadraSerializer(ModelSerializer):
         model = Quadra
         fields = '__all__'
 
-    unidade = UnidadeSerializer()
+    # unidade = UnidadeSerializer()
 
 
 class CampeonatoSerializer(ModelSerializer):
@@ -30,8 +30,8 @@ class CampeonatoSerializer(ModelSerializer):
         model = Campeonato
         fields = '__all__'
 
-    unidade = UnidadeSerializer()
-    cup_manager = FuncionarioSerializer()
+    # unidade = UnidadeSerializer()
+    # cup_manager = FuncionarioSerializer()
     times = SerializerMethodField()
 
     def get_times(self, obj: Campeonato):
@@ -44,7 +44,7 @@ class TimeSerializer(ModelSerializer):
         model = Time
         fields = '__all__'
 
-    campeonato = SerializerMethodField()
+    # campeonato = SerializerMethodField()
     pontos = SerializerMethodField()
     saldo_de_gols = SerializerMethodField()
 
@@ -79,7 +79,7 @@ class JogadorSerializer(ModelSerializer):
         model = Jogador
         fields = '__all__'
 
-    time = TimeSerializer()
+    # time = TimeSerializer()
 
 
 class JogoSerializer(ModelSerializer):
@@ -87,7 +87,7 @@ class JogoSerializer(ModelSerializer):
         model = Jogo
         fields = '__all__'
 
-    time1 = TimeSerializer()
-    time2 = TimeSerializer()
-    quadra = QuadraSerializer()
-    campeonato = CampeonatoSerializer()
+    # time1 = TimeSerializer()
+    # time2 = TimeSerializer()
+    # quadra = QuadraSerializer()
+    # campeonato = CampeonatoSerializer()
