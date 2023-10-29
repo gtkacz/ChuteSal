@@ -103,15 +103,12 @@ class Time(models.Model):
 
 class Jogo(models.Model):
     campeonato = models.ForeignKey(Campeonato, on_delete=models.CASCADE)
-    time1 = models.ForeignKey(
-        Time, on_delete=models.CASCADE, related_name='time1')
-    time2 = models.ForeignKey(
-        Time, on_delete=models.CASCADE, related_name='time2')
+    time1 = models.ForeignKey(Time, on_delete=models.CASCADE, related_name='time1')
+    time2 = models.ForeignKey(Time, on_delete=models.CASCADE, related_name='time2')
     data = models.DateField()
     horario = models.TimeField()
     rodada = models.IntegerField(default=0)
-    quadra = models.ForeignKey(
-        Quadra, on_delete=models.CASCADE, null=True, blank=True)
+    quadra = models.ForeignKey(Quadra, on_delete=models.CASCADE, null=True, blank=True)
     resultado_time1 = models.IntegerField(default=0)
     resultado_time2 = models.IntegerField(default=0)
     is_over = models.BooleanField(default=False)
@@ -140,8 +137,7 @@ class Jogador(models.Model):
     nome = models.CharField(max_length=50)
     apelido = models.CharField(max_length=50, null=True, blank=True)
     data_nascimento = models.DateField()
-    time = models.ForeignKey(
-        Time, on_delete=models.CASCADE, null=True, blank=True)
+    time = models.ForeignKey(Time, on_delete=models.CASCADE, null=True, blank=True, related_name='time')
 
     def __str__(self):
         return self.nome

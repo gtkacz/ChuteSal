@@ -38,5 +38,6 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
     path('', home, name='home'),
+    path('campeonato/', campeonatos, name='campeonatos'),
     *static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ]

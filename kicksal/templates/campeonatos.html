@@ -1,0 +1,69 @@
+{% extends "scaffold.html" %}
+{% load static %}
+
+{% block content %}
+<main>
+    <div class="d-flex align-center justify-center flex-column" style="margin-bottom: 5vh !important;">
+        <h4 class="text-capitalize" style="margin: 0% !important;">{{ campeonato.nome }}</h4>
+        <span>Unidade: {{ campeonato.unidade }}</span>
+
+        {%if status == 'past'%}
+        <span>Acabou em: {{ campeonato.periodo_jogos_fim }}</span>
+
+        {%elif status == 'ongoing'%}
+        <span>Acaba em: {{ campeonato.periodo_jogos_fim }}</span>
+
+        {%elif status == 'upcoming'%}
+        <span>Começa em: {{ campeonato.periodo_jogos_comeco }}</span>
+
+        {%endif%}
+    </div>
+
+    <hr
+        style="max-width: 20vw !important; background-color: var(--quaternary) !important; color: var(--quaternary) !important; border-color: var(--quaternary) !important;" />
+
+    <div class="d-flex flex-column align-center justify-center">
+        {%if status == 'past'%}
+
+        <img src="{% static 'img/medal.svg' %}" class="icon" style="margin-bottom: 2vh !important;">
+        <span style="color: #FFD700 !important;">1° lugar: {{ posicao.0.time.nome }} ({{ posicao.0.pontos }} pts)</span>
+        <span style="color: #c0c0c0 !important;">2° lugar: {{ posicao.1.time.nome }} ({{ posicao.1.pontos }} pts)</span>
+        <span style="color: #CD7F32 !important;">3° lugar: {{ posicao.2.time.nome }} ({{ posicao.2.pontos }} pts)</span>
+
+        <h5 style="margin-top: 5vh !important;">Jogos</h5>
+        {% for x in jogos %}
+        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+            <span>{{ x.time1 }} ({{ x.resultado_time1 }}) x {{ x.time2 }} ({{ x.resultado_time2 }})</span>
+            <span>Data: {{ x.data }}, {{ x.horario }}</span>
+            <span>Rodada: {{ x.rodada }}</span>
+            <span>Quadra: {{ x.quadra }}</span>
+        </div>
+        {% endfor %}
+
+        {%elif status == 'ongoing'%}
+        <h5 style="margin-top: 5vh !important;">Jogos</h5>
+        {% for x in jogos %}
+        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+            <span>{{ x.time1 }} ({{ x.resultado_time1 }}) x {{ x.time2 }} ({{ x.resultado_time2 }})</span>
+            <span>Data: {{ x.data }}, {{ x.horario }}</span>
+            <span>Rodada: {{ x.rodada }}</span>
+            <span>Quadra: {{ x.quadra }}</span>
+        </div>
+
+        {% endfor %}
+
+        {%endif%}
+
+        <h5 style="margin-top: 5vh !important;">Times</h5>
+        {% for x in times %}
+        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+            <b>{{ x.nome }}</b>
+            {% for j in x.time.all %}
+            <span> {{ j.nome }}</span>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+    </div>
+</main>
+{% endblock %}

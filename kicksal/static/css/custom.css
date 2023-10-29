@@ -92,3 +92,10 @@ h6 {
 .justify-end {
     justify-content: flex-end !important;
 }
+
+.icon {
+    /* filter: invert(8%) sepia(100%) saturate(6481%) hue-rotate(246deg) brightness(102%) contrast(143%); */
+    width: 5vh !important;
+    height: auto;
+    aspect-ratio: 1/1;
+}
