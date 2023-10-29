@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sometype+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+    --background: #070129;
+    --primary: #190482;
+    --secondary: #7752FE;
+    --tertiary: #8E8FFA;
+    --quaternary: #C2D9FF;
+    /* --quinary: #ffffff;
+    --senary: #ff0000;
+    --septenary: #ff0000;
+    --octonary: #ff0000;
+    --nonary: #ff0000;
+    --denary: #ff0000;
+    --undenary: #ff0000;
+    --duodenary: #ff0000;
+    --tredenary: #ff0000;
+    --quattuordenary: #ff0000;
+    --quinquedenary: #ff0000;
+    --sexadenary: #ff0000;
+    --septendenary: #ff0000;
+    --octodenary: #ff0000;
+    --novendenary: #ff0000;
+    --vigesimal: #ff0000; */
+}
+
+html *:not(a) {
+    font-family: 'Barlow', sans-serif;
+    /* font-family: 'Rubik', sans-serif; */
+    /* font-family: 'Sometype Mono', monospace; */
+    background-color: var(--background);
+    color: var(--quaternary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Rubik', sans-serif !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.align-center {
+    align-items: center !important;
+}
+
+.justify-center {
+    justify-content: center !important;
+}
+
+.flex-column {
+    flex-direction: column !important;
+}
+
+.text-capitalize {
+    text-transform: uppercase !important;
+}
+
+#navbar-container, #navbar-container * {
+    background-color: var(--tertiary) !important;
+    padding: 0.25em !important;
+}
+
+#navbar {
+    width: 50vw;
+}
+
+#navbar * {
+    text-decoration: none;
+    color: var(--quaternary) !important;
+    font-size: xx-large !important;
+    font-weight: bold !important;
+}
+
+.align-start {
+    align-items: flex-start !important;
+}
+
+.align-end {
+    align-items: flex-end !important;
+}
+
+.justify-start {
+    justify-content: flex-start !important;
+}
+
+.justify-end {
+    justify-content: flex-end !important;
+}

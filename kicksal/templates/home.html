@@ -1,0 +1,59 @@
+{% extends "scaffold.html" %}
+
+{% block content %}
+<main>
+  <div class="d-flex align-center justify-center flex-column">
+    <h4 class="text-capitalize">Campeonatos</h4>
+  </div>
+
+  <hr style="max-width: 40vw !important" />
+
+  <div class="pure-g d-flex align-start">
+    <div class="d-flex align-center justify-center flex-column pure-u-1-3">
+      <h5 class="text-capitalize">Campeonatos em andamento</h5>
+
+      <div class="container d-flex flex-column align-center justify-center">
+        {% for x in ongoing %}
+        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+          <a href="/campeonato/{{ x.id }}"><b>{{ x.nome }}</b></a>
+          <span>Unidade: {{ x.unidade.nome }}</span>
+          <span>Período de inscrição: {{ x.periodo_inscricao_comeco }} à {{ x.periodo_inscricao_fim }}</span>
+          <span>Período do campeonato: {{ x.periodo_jogos_comeco }} à {{ x.periodo_jogos_fim }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="d-flex align-center justify-center flex-column pure-u-1-3">
+      <h5 class="text-capitalize">Campeonatos finalizados</h5>
+
+      <div class="container d-flex flex-column align-center justify-center">
+        {% for x in past %}
+        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+          <a href="/campeonato/{{ x.id }}"><b>{{ x.nome }}</b></a>
+          <span>Unidade: {{ x.unidade.nome }}</span>
+          <span>Período de inscrição: {{ x.periodo_inscricao_comeco }} à {{ x.periodo_inscricao_fim }}</span>
+          <span>Período do campeonato: {{ x.periodo_jogos_comeco }} à {{ x.periodo_jogos_fim }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="d-flex align-center justify-center flex-column pure-u-1-3">
+      <h5 class="text-capitalize">Campeonatos futuros</h5>
+
+      <div class="container d-flex flex-column align-center justify-center">
+        {% for x in upcoming %}
+        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+          <a href="/campeonato/{{ x.id }}"><b>{{ x.nome }}</b></a>
+          <span>Unidade: {{ x.unidade.nome }}</span>
+          <span>Período de inscrição: {{ x.periodo_inscricao_comeco }} à {{ x.periodo_inscricao_fim }}</span>
+          <span>Período do campeonato: {{ x.periodo_jogos_comeco }} à {{ x.periodo_jogos_fim }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</main>
+{% endblock %}

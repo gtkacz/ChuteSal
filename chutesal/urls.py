@@ -20,6 +20,7 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 
+from kicksal.viewsets import *
 from kicksal.views import *
 
 router = routers.DefaultRouter()
@@ -36,5 +37,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
+    path('', home, name='home'),
     *static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ]

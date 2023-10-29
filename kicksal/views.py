@@ -1,47 +1,16 @@
-from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import AllowAny
+from django.shortcuts import render
+from django.utils import timezone
 
-from kicksal.models import *
-from kicksal.serializers import *
-
-
-class UnidadeViewSet(ModelViewSet):
-    queryset = Unidade.objects.all()
-    serializer_class = UnidadeSerializer
-    permission_classes = (AllowAny,)
+from kicksal.models import Campeonato
 
 
-class FuncionarioViewSet(ModelViewSet):
-    queryset = Funcionario.objects.all()
-    serializer_class = FuncionarioSerializer
-    permission_classes = (AllowAny,)
+def home(request):
+    now = timezone.now().date()
 
+    context = {
+        'ongoing': Campeonato.objects.filter(periodo_jogos_comeco__lte=now, periodo_jogos_fim__gte=now),
+        'upcoming': Campeonato.objects.filter(periodo_inscricao_comeco__gte=now),
+        'past': Campeonato.objects.filter(periodo_jogos_fim__lte=now)
+    }
 
-class QuadraViewSet(ModelViewSet):
-    queryset = Quadra.objects.all()
-    serializer_class = QuadraSerializer
-    permission_classes = (AllowAny,)
-
-
-class CampeonatoViewSet(ModelViewSet):
-    queryset = Campeonato.objects.all()
-    serializer_class = CampeonatoSerializer
-    permission_classes = (AllowAny,)
-
-
-class TimeViewSet(ModelViewSet):
-    queryset = Time.objects.all()
-    serializer_class = TimeSerializer
-    permission_classes = (AllowAny,)
-
-
-class JogadorViewSet(ModelViewSet):
-    queryset = Jogador.objects.all()
-    serializer_class = JogadorSerializer
-    permission_classes = (AllowAny,)
-
-
-class JogoViewSet(ModelViewSet):
-    queryset = Jogo.objects.all()
-    serializer_class = JogoSerializer
-    permission_classes = (AllowAny,)
+    return render(request, 'home.html', context)
