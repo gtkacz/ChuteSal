@@ -52,17 +52,29 @@
 
         {% endfor %}
 
+        {%else%}
+        <h5 style="margin-top: 5vh !important;">Informações</h5>
+        <span>Período de inscrição: {{ campeonato.periodo_inscricao_comeco }} à {{ campeonato.periodo_inscricao_fim }}</span>
+        <span>Período do campeonato: {{ campeonato.periodo_jogos_comeco }} à {{ campeonato.periodo_jogos_fim }}</span>
+        <span>Cup manager: {{ campeonato.cup_manager }}</span>
+        
+        <h5 style="margin-top: 5vh !important;">Formulário de inscrição</h5>
+        
         {%endif%}
-
+        
+        {%if times%}
         <h5 style="margin-top: 5vh !important;">Times</h5>
         {% for x in times %}
         <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
             <b>{{ x.nome }}</b>
-            {% for j in x.time.all %}
-            <span> {{ j.nome }}</span>
-            {% endfor %}
+            <ul>
+                {% for j in x.time.all %}
+                <li> {{ j.nome }}</li>
+                {% endfor %}
+            </ul>
         </div>
         {% endfor %}
+        {%endif%}
 
     </div>
 </main>
