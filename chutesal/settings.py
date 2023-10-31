@@ -122,7 +122,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = 'static'
 STATICFILES_DIRS = [
-    'kicksal/static/css/',
+    'kicksal/static/',
 ]
 
 # Default primary key field type
