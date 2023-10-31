@@ -4,6 +4,11 @@
 <main>
   <div class="d-flex align-center justify-center flex-column">
     <h4 class="text-capitalize">Campeonatos</h4>
+    <button>
+      <a href="/create_championship">
+        Criar Campeonato
+      </a>
+    </button>
   </div>
 
   <hr style="max-width: 40vw !important; background-color: var(--quaternary) !important; color: var(--quaternary) !important; border-color: var(--quaternary) !important;" />
@@ -14,7 +19,7 @@
 
       <div class="container d-flex flex-column align-center justify-center">
         {% for x in past %}
-        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+        <div class="d-flex flex-column align-center justify-center mb-5">
           <a href="/campeonato?pk={{ x.id }}"><b>{{ x.nome }}</b></a>
           <span>Unidade: {{ x.unidade.nome }}</span>
           <span>Período de inscrição: {{ x.periodo_inscricao_comeco }} à {{ x.periodo_inscricao_fim }}</span>
@@ -29,7 +34,7 @@
 
       <div class="container d-flex flex-column align-center justify-center">
         {% for x in ongoing %}
-        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+        <div class="d-flex flex-column align-center justify-center mb-5">
           <a href="/campeonato?pk={{ x.id }}"><b>{{ x.nome }}</b></a>
           <span>Unidade: {{ x.unidade.nome }}</span>
           <span>Período de inscrição: {{ x.periodo_inscricao_comeco }} à {{ x.periodo_inscricao_fim }}</span>
@@ -44,7 +49,7 @@
 
       <div class="container d-flex flex-column align-center justify-center">
         {% for x in upcoming %}
-        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+        <div class="d-flex flex-column align-center justify-center mb-5">
           <a href="/campeonato?pk={{ x.id }}"><b>{{ x.nome }}</b></a>
           <span>Unidade: {{ x.unidade.nome }}</span>
           <span>Período de inscrição: {{ x.periodo_inscricao_comeco }} à {{ x.periodo_inscricao_fim }}</span>

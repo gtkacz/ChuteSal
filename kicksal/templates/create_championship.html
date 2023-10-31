@@ -1,0 +1,121 @@
+{% extends "scaffold.html" %}
+{% load static %}
+
+{% block content %}
+<main>
+    <div class="d-flex align-center justify-center flex-column">
+        <h4 class="text-capitalize ma-0 mb-4">Criar campeonato</h4>
+
+        <div>
+            <div class="w-100">
+                <label for="name">Nome do campeonato:</label>
+                <input type="text" id="name" name="name" class="w-100"><br><br>
+            </div>
+
+            <div class="d-flex gap-2 w-100">
+                <div class="w-100">
+                    <label for="unit">Unidade:</label>
+                    <select type="text" id="unit" name="unit" class="w-100">
+                        {% for x in unidades %}
+                        <option value="{{ x.id }}">{{ x.nome }}</option>
+                        {% endfor %}
+                    </select><br><br>
+                </div>
+
+                <div class="w-100">
+                    <label for="cup_manager">Cup Manager:</label>
+                    <select type="text" id="cup_manager" name="cup_manager" class="w-100">
+                        {% for x in cup_managers %}
+                        <option value="{{ x.id }}">{{ x.nome }}</option>
+                        {% endfor %}
+                    </select><br><br>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column justify-center align-start">
+                <b style="margin-bottom: 0.6ch !important;">Data de inscrição:</b>
+                <div class="d-flex gap-2 justify-center">
+                    <div>
+                        <input type="date" id="insc_start" name="insc_start"><br><br>
+                    </div>
+
+                    <span>à</span>
+    
+                    <div>
+                        <input type="date" id="insc_end" name="insc_end"><br><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column justify-center align-start">
+                <b style="margin-bottom: 0.6ch !important;">Data dos jogos:</b>
+                <div class="d-flex gap-2 justify-center">
+                    <div>
+                        <input type="date" id="games_start" name="games_start"><br><br>
+                    </div>
+
+                    <span>à</span>
+    
+                    <div>
+                        <input type="date" id="games_end" name="games_end"><br><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-100">
+                <label for="divulg">Data de divulgação:</label>
+                <input type="date" id="divulg" name="divulg" class="w-100"><br><br>
+            </div>
+
+            <div class="w-100">
+                <button class="w-100 mt-3 mb-10" onclick="submitForm()">Enviar</button>
+            </div>
+
+        </div>
+    </div>
+</main>
+<script>
+    function submitForm() {
+        const name = document.getElementById("name").value;
+        const unit = document.getElementById("unit").value;
+        const cup_manager = document.getElementById("cup_manager").value;
+        const insc_start = document.getElementById("insc_start").value;
+        const insc_end = document.getElementById("insc_end").value;
+        const games_start = document.getElementById("games_start").value;
+        const games_end = document.getElementById("games_end").value;
+        const divulg = document.getElementById("divulg").value;
+
+        const data = {
+            "nome": name,
+            "unidade": unit,
+            "cup_manager": cup_manager,
+            "periodo_inscricao_comeco": insc_start,
+            "periodo_inscricao_fim": insc_end,
+            "periodo_jogos_comeco": games_start,
+            "periodo_jogos_fim": games_end,
+            "data_inicio_divulgacao": divulg
+        }
+
+        const host = window.location.host;
+        const url = `http://${host}/api/campeonatos/`;
+
+        const headers = {
+            "Content-Type": "application/json",
+            "Access-Control-Origin": "*"
+        }
+
+        fetch(url, {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify(data)
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data);
+                window.location.href = "http://" + host;
+            });
+    }
+</script>
+{% endblock %}

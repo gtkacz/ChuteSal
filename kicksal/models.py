@@ -138,6 +138,7 @@ class Jogador(models.Model):
     apelido = models.CharField(max_length=50, null=True, blank=True)
     data_nascimento = models.DateField()
     time = models.ForeignKey(Time, on_delete=models.CASCADE, null=True, blank=True, related_name='time')
+    celular = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
         return self.nome

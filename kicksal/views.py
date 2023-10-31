@@ -2,7 +2,7 @@ from urllib import response
 from django.shortcuts import render
 from django.utils import timezone
 
-from kicksal.models import Campeonato, Jogo, Time
+from kicksal.models import Campeonato, Funcionario, Jogo, Time, Unidade
 
 
 def home(request):
@@ -71,3 +71,11 @@ def campeonatos(request):
     }
 
     return render(request, 'campeonatos.html', context=context)
+
+def create_championship(request):
+    context = {
+        'unidades': Unidade.objects.all(),
+        'cup_managers': Funcionario.objects.all()
+    }
+
+    return render(request, 'create_championship.html', context=context)

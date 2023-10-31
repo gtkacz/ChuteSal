@@ -3,8 +3,9 @@
 
 {% block content %}
 <main>
-    <div class="d-flex align-center justify-center flex-column" style="margin-bottom: 5vh !important;">
-        <h4 class="text-capitalize" style="margin: 0% !important;">{{ campeonato.nome }}</h4>
+    <div class="d-flex align-center justify-center flex-column mb-5">
+        <h4 class="text-capitalize ma-0">{{ campeonato.nome }}</h4>
+
         <span>Unidade: {{ campeonato.unidade }}</span>
 
         {%if status == 'past'%}
@@ -17,6 +18,12 @@
         <span>Começa em: {{ campeonato.periodo_jogos_comeco }}</span>
 
         {%endif%}
+
+        <button class="mt-2">
+            <a href="/edit_championship?pk={{ campeonato.id }}">
+                Editar Campeonato
+            </a>
+        </button>
     </div>
 
     <hr
@@ -25,14 +32,19 @@
     <div class="d-flex flex-column align-center justify-center">
         {%if status == 'past'%}
 
-        <img src="{% static 'img/medal.svg' %}" class="icon" style="margin-bottom: 2vh !important;">
-        <span style="color: #FFD700 !important;">1° lugar: {{ posicao.0.time.nome }} ({{ posicao.0.pontos }} pts)</span>
-        <span style="color: #c0c0c0 !important;">2° lugar: {{ posicao.1.time.nome }} ({{ posicao.1.pontos }} pts)</span>
-        <span style="color: #CD7F32 !important;">3° lugar: {{ posicao.2.time.nome }} ({{ posicao.2.pontos }} pts)</span>
+        <div class="d-flex align-center justify-center flex-column mb-5">
+            <img src="{% static 'img/medal.svg' %}" class="icon mb-2">
+            <span style="color: #FFD700 !important;">1° lugar: {{ posicao.0.time.nome }} ({{ posicao.0.pontos }}
+                pts)</span>
+            <span style="color: #c0c0c0 !important;">2° lugar: {{ posicao.1.time.nome }} ({{ posicao.1.pontos }}
+                pts)</span>
+            <span style="color: #CD7F32 !important;">3° lugar: {{ posicao.2.time.nome }} ({{ posicao.2.pontos }}
+                pts)</span>
+        </div>
 
-        <h5 style="margin-top: 5vh !important;">Jogos</h5>
+        <h5 class="mt-5">Jogos</h5>
         {% for x in jogos %}
-        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+        <div class="d-flex flex-column align-center justify-center mb-5">
             <span>{{ x.time1 }} ({{ x.resultado_time1 }}) x {{ x.time2 }} ({{ x.resultado_time2 }})</span>
             <span>Data: {{ x.data }}, {{ x.horario }}</span>
             <span>Rodada: {{ x.rodada }}</span>
@@ -41,9 +53,9 @@
         {% endfor %}
 
         {%elif status == 'ongoing'%}
-        <h5 style="margin-top: 5vh !important;">Jogos</h5>
+        <h5 class="mt-5">Jogos</h5>
         {% for x in jogos %}
-        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+        <div class="d-flex flex-column align-center justify-center mb-5">
             <span>{{ x.time1 }} ({{ x.resultado_time1 }}) x {{ x.time2 }} ({{ x.resultado_time2 }})</span>
             <span>Data: {{ x.data }}, {{ x.horario }}</span>
             <span>Rodada: {{ x.rodada }}</span>
@@ -57,15 +69,51 @@
         <span>Período de inscrição: {{ campeonato.periodo_inscricao_comeco }} à {{ campeonato.periodo_inscricao_fim }}</span>
         <span>Período do campeonato: {{ campeonato.periodo_jogos_comeco }} à {{ campeonato.periodo_jogos_fim }}</span>
         <span>Cup manager: {{ campeonato.cup_manager }}</span>
-        
+
         <h5 style="margin-top: 5vh !important;">Formulário de inscrição</h5>
-        
+
+        <div>
+            <div class="d-flex gap-2">
+                <div>
+                    <label for="fname">Nome completo:</label>
+                    <input type="text" id="fname" name="fname"><br><br>
+                </div>
+
+                <div>
+                    <label for="alias">Apelido (opcional):</label>
+                    <input type="text" id="alias" name="alias"><br><br>
+                </div>
+            </div>
+
+            <div class="d-flex gap-2">
+                <div>
+                    <label for="phone">Celular:</label>
+                    <input type="tel" id="phone" name="phone"><br><br>
+                </div>
+
+                <div>
+                    <label for="bday">Data de nascimento:</label>
+                    <input type="date" id="bday" name="bday"><br><br>
+                </div>
+            </div>
+
+            <div class="w-100">
+                <label for="team">Time:</label>
+                <select type="text" id="team" name="team" class="w-100">
+                    {% for x in times %}
+                    <option value="{{ x.id }}">{{ x.nome }}</option>
+                    {% endfor %}
+                </select><br><br>
+                <button class="w-100 mt-3 mb-10" onclick="submitForm()">Enviar</button>
+            </div>
+        </div>
+
         {%endif%}
-        
+
         {%if times%}
-        <h5 style="margin-top: 5vh !important;">Times</h5>
+        <h5 class="mt-5">Times</h5>
         {% for x in times %}
-        <div class="d-flex flex-column align-center justify-center" style="margin-bottom: 5vh !important;">
+        <div class="d-flex flex-column align-center justify-center mb-5">
             <b>{{ x.nome }}</b>
             <ul>
                 {% for j in x.time.all %}
@@ -78,4 +126,42 @@
 
     </div>
 </main>
+<script>
+    function submitForm() {
+        const fname = document.getElementById("fname").value;
+        const alias = document.getElementById("alias").value;
+        const phone = document.getElementById("phone").value;
+        const bday = document.getElementById("bday").value;
+        const team = document.getElementById("team").value;
+
+        const data = {
+            "nome": fname,
+            "apelido": alias,
+            "celular": phone,
+            "data_nascimento": bday,
+            "time": team
+        }
+
+        const host = window.location.host;
+        const url = `http://${host}/api/jogadores/`;
+
+        const headers = {
+            "Content-Type": "application/json",
+            "Access-Control-Origin": "*"
+        }
+
+        fetch(url, {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify(data)
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data);
+                location.reload();
+            });
+    }
+</script>
 {% endblock %}
