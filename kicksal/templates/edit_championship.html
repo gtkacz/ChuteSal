@@ -2,247 +2,197 @@
 {% load static %}
 
 {% block content %}
-<main>
+<main class="mb-5">
     <div class="d-flex align-center justify-center flex-column">
         <h3 class="text-capitalize ma-0 mb-4">Editar {{ campeonato.nome }}</h4>
 
-        <hr style="width: 40vw !important; background-color: var(--quaternary) !important; color: var(--quaternary) !important; border-color: var(--quaternary) !important;" />
+            <hr
+                style="width: 40vw !important; background-color: var(--quaternary) !important; color: var(--quaternary) !important; border-color: var(--quaternary) !important;" />
 
-        <section class="d-flex flex-column align-center justify-center" id="edit-championship">
-            <h4 class="text-capitalize ma-0 mb-4">Editar campeonato</h4>
-    
-            <div>
-                <div class="w-100">
-                    <label for="name">Nome do campeonato:</label>
-                    <input type="text" id="name" name="name" class="w-100" value="{{ campeonato.nome }}"><br><br>
-                </div>
-    
-                <div class="d-flex gap-2 w-100">
+            <section class="d-flex flex-column align-center justify-center" id="edit-championship">
+                <h4 class="text-capitalize ma-0 mb-4">Editar campeonato</h4>
+
+                <div>
                     <div class="w-100">
-                        <label for="unit">Unidade:</label>
-                        <select type="text" id="unit" name="unit" class="w-100">
-                            {% for x in unidades %}
-
-                            {%if x.id == campeonato.unidade.id%}
-                            <option selected value="{{ x.id }}">{{ x.nome }}</option>
-                            
-                            {%else%}
-                            <option value="{{ x.id }}">{{ x.nome }}</option>
-                            {% endif %}
-
-                            {% endfor %}
-                        </select><br><br>
+                        <label for="name">Nome do campeonato:</label>
+                        <input type="text" id="name" name="name" class="w-100" value="{{ campeonato.nome }}"><br><br>
                     </div>
-    
+
+                    <div class="d-flex gap-2 w-100">
+                        <div class="w-100">
+                            <label for="unit">Unidade:</label>
+                            <select type="text" id="unit" name="unit" class="w-100">
+                                {% for x in unidades %}
+
+                                {%if x.id == campeonato.unidade.id%}
+                                <option selected value="{{ x.id }}">{{ x.nome }}</option>
+
+                                {%else%}
+                                <option value="{{ x.id }}">{{ x.nome }}</option>
+                                {% endif %}
+
+                                {% endfor %}
+                            </select><br><br>
+                        </div>
+
+                        <div class="w-100">
+                            <label for="cup_manager">Cup Manager:</label>
+                            <select type="text" id="cup_manager" name="cup_manager" class="w-100">
+                                {% for x in cup_managers %}
+
+                                {%if x.id == campeonato.cup_manager.id%}
+                                <option selected value="{{ x.id }}">{{ x.nome }}</option>
+
+                                {%else%}
+                                <option value="{{ x.id }}">{{ x.nome }}</option>
+                                {% endif %}
+
+                                {% endfor %}
+                            </select><br><br>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column justify-center align-start">
+                        <b style="margin-bottom: 0.6ch !important;">Data de inscrição:</b>
+                        <div class="d-flex gap-2 justify-center">
+                            <div>
+                                <input type="date" id="insc_start" name="insc_start"
+                                    value="{{ campeonato.periodo_inscricao_comeco|date:'Y-m-d' }}"><br><br>
+                            </div>
+
+                            <span>à</span>
+
+                            <div>
+                                <input type="date" id="insc_end" name="insc_end"
+                                    value="{{ campeonato.periodo_inscricao_fim|date:'Y-m-d' }}"><br><br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column justify-center align-start">
+                        <b style="margin-bottom: 0.6ch !important;">Data dos jogos:</b>
+                        <div class="d-flex gap-2 justify-center">
+                            <div>
+                                <input type="date" id="games_start" name="games_start"
+                                    value="{{ campeonato.periodo_jogos_comeco|date:'Y-m-d' }}"><br><br>
+                            </div>
+
+                            <span>à</span>
+
+                            <div>
+                                <input type="date" id="games_end" name="games_end"
+                                    value="{{ campeonato.periodo_jogos_fim|date:'Y-m-d' }}"><br><br>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="w-100">
-                        <label for="cup_manager">Cup Manager:</label>
-                        <select type="text" id="cup_manager" name="cup_manager" class="w-100">
-                            {% for x in cup_managers %}
-
-                            {%if x.id == campeonato.cup_manager.id%}
-                            <option selected value="{{ x.id }}">{{ x.nome }}</option>
-
-                            {%else%}
-                            <option value="{{ x.id }}">{{ x.nome }}</option>
-                            {% endif %}
-                            
-                            {% endfor %}
-                        </select><br><br>
+                        <label for="divulg">Data de divulgação:</label>
+                        <input type="date" id="divulg" name="divulg" class="w-100"
+                            value="{{ campeonato.data_inicio_divulgacao|date:'Y-m-d' }}"><br><br>
                     </div>
-                </div>
-    
-                <div class="d-flex flex-column justify-center align-start">
-                    <b style="margin-bottom: 0.6ch !important;">Data de inscrição:</b>
-                    <div class="d-flex gap-2 justify-center">
-                        <div>
-                            <input type="date" id="insc_start" name="insc_start" value="{{ campeonato.periodo_inscricao_comeco|date:'Y-m-d' }}"><br><br>
-                        </div>
-    
-                        <span>à</span>
-        
-                        <div>
-                            <input type="date" id="insc_end" name="insc_end" value="{{ campeonato.periodo_inscricao_fim|date:'Y-m-d' }}"><br><br>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="d-flex flex-column justify-center align-start">
-                    <b style="margin-bottom: 0.6ch !important;">Data dos jogos:</b>
-                    <div class="d-flex gap-2 justify-center">
-                        <div>
-                            <input type="date" id="games_start" name="games_start" value="{{ campeonato.periodo_jogos_comeco|date:'Y-m-d' }}"><br><br>
-                        </div>
-    
-                        <span>à</span>
-        
-                        <div>
-                            <input type="date" id="games_end" name="games_end" value="{{ campeonato.periodo_jogos_fim|date:'Y-m-d' }}"><br><br>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="w-100">
-                    <label for="divulg">Data de divulgação:</label>
-                    <input type="date" id="divulg" name="divulg" class="w-100" value="{{ campeonato.data_inicio_divulgacao|date:'Y-m-d' }}"><br><br>
-                </div>
-    
-                <div class="w-100">
-                    <button class="w-100 mt-3 mb-10" onclick="submitForm()">Enviar</button>
-                </div>
-    
-            </div>
-        </section>
 
-        <hr style="width: 20vw !important; background-color: var(--quaternary) !important; color: var(--quaternary) !important; border-color: var(--quaternary) !important;" />
-
-        <section class="d-flex flex-column align-center justify-center" id="edit-teams">
-            <h4 class="text-capitalize ma-0 mb-4">Editar times</h4>
-    
-            <div>
-                <div class="w-100">
-                    <label for="name">Nome do campeonato:</label>
-                    <input type="text" id="name" name="name" class="w-100"><br><br>
-                </div>
-    
-                <div class="d-flex gap-2 w-100">
                     <div class="w-100">
-                        <label for="unit">Unidade:</label>
-                        <select type="text" id="unit" name="unit" class="w-100">
-                            {% for x in unidades %}
-                            <option value="{{ x.id }}">{{ x.nome }}</option>
-                            {% endfor %}
-                        </select><br><br>
+                        <button class="w-100 mt-3 mb-10"
+                            onclick="submitChampionship({{ campeonato.id }})">Salvar</button>
                     </div>
-    
-                    <div class="w-100">
-                        <label for="cup_manager">Cup Manager:</label>
-                        <select type="text" id="cup_manager" name="cup_manager" class="w-100">
-                            {% for x in cup_managers %}
-                            <option value="{{ x.id }}">{{ x.nome }}</option>
-                            {% endfor %}
-                        </select><br><br>
-                    </div>
-                </div>
-    
-                <div class="d-flex flex-column justify-center align-start">
-                    <b style="margin-bottom: 0.6ch !important;">Data de inscrição:</b>
-                    <div class="d-flex gap-2 justify-center">
-                        <div>
-                            <input type="date" id="insc_start" name="insc_start"><br><br>
-                        </div>
-    
-                        <span>à</span>
-        
-                        <div>
-                            <input type="date" id="insc_end" name="insc_end"><br><br>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="d-flex flex-column justify-center align-start">
-                    <b style="margin-bottom: 0.6ch !important;">Data dos jogos:</b>
-                    <div class="d-flex gap-2 justify-center">
-                        <div>
-                            <input type="date" id="games_start" name="games_start"><br><br>
-                        </div>
-    
-                        <span>à</span>
-        
-                        <div>
-                            <input type="date" id="games_end" name="games_end"><br><br>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="w-100">
-                    <label for="divulg">Data de divulgação:</label>
-                    <input type="date" id="divulg" name="divulg" class="w-100"><br><br>
-                </div>
-    
-                <div class="w-100">
-                    <button class="w-100 mt-3 mb-10" onclick="submitForm()">Enviar</button>
-                </div>
-    
-            </div>
-        </section>
 
-        <hr style="width: 20vw !important; background-color: var(--quaternary) !important; color: var(--quaternary) !important; border-color: var(--quaternary) !important;" />
+                </div>
+            </section>
 
-        <section class="d-flex flex-column align-center justify-center" id="edit-games">
-            <h4 class="text-capitalize ma-0 mb-4">Editar jogos</h4>
-    
-            <div>
-                <div class="w-100">
-                    <label for="name">Nome do campeonato:</label>
-                    <input type="text" id="name" name="name" class="w-100"><br><br>
-                </div>
-    
-                <div class="d-flex gap-2 w-100">
+            <hr
+                style="width: 20vw !important; background-color: var(--quaternary) !important; color: var(--quaternary) !important; border-color: var(--quaternary) !important;" />
+
+            <section class="d-flex flex-column align-center justify-center" id="edit-games">
+                <h4 class="text-capitalize ma-0 mb-4">Editar jogos</h4>
+
+                {% for x in jogos %}
+                <div>
+                    <div class="d-flex gap-2 w-100">
+                        <div class="w-100">
+                            <label for="unit">Time 1:</label>
+                            <select type="text" id="time1-{{x.id}}" name="unit" class="w-100">
+                                {% for y in times %}
+
+                                {%if y.id == x.time1.id%}
+                                <option selected value="{{ y.id }}">{{ y.nome }}</option>
+
+                                {%else%}
+                                <option value="{{ y.id }}">{{ y.nome }}</option>
+
+                                {% endif %}
+                                {% endfor %}
+                            </select><br><br>
+                        </div>
+
+                        <div class="w-100">
+                            <label for="cup_manager">Time 2:</label>
+                            <select type="text" id="time2-{{x.id}}" name="unit" class="w-100">
+                                {% for y in times %}
+
+                                {%if y.id == x.time2.id%}
+                                <option selected value="{{ y.id }}">{{ y.nome }}</option>
+
+                                {%else%}
+                                <option value="{{ y.id }}">{{ y.nome }}</option>
+
+                                {% endif %}
+                                {% endfor %}
+                            </select><br><br>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <div>
+                            <label for="round">Placar time 1:</label>
+                            <input type="number" id="score1-{{x.id}}" name="round"
+                                value="{{x.resultado_time1}}"><br><br>
+                        </div>
+
+                        <div>
+                            <label for="gamedate">Placar time 2:</label>
+                            <input type="number" id="score2-{{x.id}}" name="gamedate"
+                                value="{{x.resultado_time2}}"><br><br>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2 align-center justify-space-between w-100">
+                        <div class="w-100">
+                            <label for="round">Horário:</label>
+                            <input type="time" id="gamehour-{{x.id}}" name="round" class="w-100"
+                                value="{{x.horario}}"><br><br>
+                        </div>
+
+                        <div class="w-100">
+                            <label for="gamedate">Data:</label>
+                            <input type="date" id="gamedate-{{x.id}}" name="gamedate" class="w-100"
+                                value="{{x.data|date:'Y-m-d'}}"><br><br>
+                        </div>
+                    </div>
+
                     <div class="w-100">
-                        <label for="unit">Unidade:</label>
-                        <select type="text" id="unit" name="unit" class="w-100">
-                            {% for x in unidades %}
-                            <option value="{{ x.id }}">{{ x.nome }}</option>
-                            {% endfor %}
-                        </select><br><br>
+                        <button class="w-100 mt-3 mb-10" onclick="submitGame({{ x.id }})">Salvar</button>
                     </div>
-    
-                    <div class="w-100">
-                        <label for="cup_manager">Cup Manager:</label>
-                        <select type="text" id="cup_manager" name="cup_manager" class="w-100">
-                            {% for x in cup_managers %}
-                            <option value="{{ x.id }}">{{ x.nome }}</option>
-                            {% endfor %}
-                        </select><br><br>
-                    </div>
+
                 </div>
-    
-                <div class="d-flex flex-column justify-center align-start">
-                    <b style="margin-bottom: 0.6ch !important;">Data de inscrição:</b>
-                    <div class="d-flex gap-2 justify-center">
-                        <div>
-                            <input type="date" id="insc_start" name="insc_start"><br><br>
-                        </div>
-    
-                        <span>à</span>
-        
-                        <div>
-                            <input type="date" id="insc_end" name="insc_end"><br><br>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="d-flex flex-column justify-center align-start">
-                    <b style="margin-bottom: 0.6ch !important;">Data dos jogos:</b>
-                    <div class="d-flex gap-2 justify-center">
-                        <div>
-                            <input type="date" id="games_start" name="games_start"><br><br>
-                        </div>
-    
-                        <span>à</span>
-        
-                        <div>
-                            <input type="date" id="games_end" name="games_end"><br><br>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="w-100">
-                    <label for="divulg">Data de divulgação:</label>
-                    <input type="date" id="divulg" name="divulg" class="w-100"><br><br>
-                </div>
-    
-                <div class="w-100">
-                    <button class="w-100 mt-3 mb-10" onclick="submitForm()">Enviar</button>
-                </div>
-    
-            </div>
-        </section>
+                {% endfor %}
+            </section>
+
+            <hr
+                style="width: 20vw !important; background-color: var(--quaternary) !important; color: var(--quaternary) !important; border-color: var(--quaternary) !important;" />
+
+            <section class="d-flex flex-column align-center justify-center" id="players">
+                <h4 class="text-capitalize ma-0 mb-4">Inscritos</h4>
+
+                {% for x in jogadores %}
+                <span class="mb-2">{{ x.nome }}, jogando por {{ x.time.nome }}</span>
+                {% endfor %}
+            </section>
 
     </div>
 </main>
 <script>
-    function submitForm() {
+    function submitChampionship(id) {
         const name = document.getElementById("name").value;
         const unit = document.getElementById("unit").value;
         const cup_manager = document.getElementById("cup_manager").value;
@@ -264,7 +214,7 @@
         }
 
         const host = window.location.host;
-        const url = `http://${host}/api/campeonatos/`;
+        const url = `http://${host}/api/campeonatos/${id}/`;
 
         const headers = {
             "Content-Type": "application/json",
@@ -272,7 +222,7 @@
         }
 
         fetch(url, {
-            method: "POST",
+            method: "PUT",
             headers: headers,
             body: JSON.stringify(data)
         })
@@ -280,7 +230,35 @@
                 return response.json();
             })
             .then(function (data) {
-                location.reload();
+                window.location.href = "http://" + host + "/admin";
+            });
+    }
+
+    function submitGame(id) {
+        const name = document.getElementById("name").value;
+
+        const data = {
+            "nome": name,
+        }
+
+        const host = window.location.host;
+        const url = `http://${host}/api/jogos/${id}/`;
+
+        const headers = {
+            "Content-Type": "application/json",
+            "Access-Control-Origin": "*"
+        }
+
+        fetch(url, {
+            method: "PUT",
+            headers: headers,
+            body: JSON.stringify(data)
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                window.location.href = "http://" + host + "/admin";
             });
     }
 </script>

@@ -1,8 +1,8 @@
-from urllib import response
 from django.shortcuts import render
 from django.utils import timezone
 
-from kicksal.models import Campeonato, Funcionario, Jogo, Time, Unidade
+from kicksal.models import (Campeonato, Funcionario, Jogador, Jogo, Time,
+                            Unidade)
 
 
 def home(request):
@@ -85,6 +85,9 @@ def edit_championship(request):
 
     context = {
         'campeonato': obj,
+        'jogos': Jogo.objects.filter(campeonato=obj).order_by('rodada', 'data', 'horario'),
+        'times': Time.objects.filter(campeonato=obj),
+        'jogadores': Jogador.objects.filter(time__in=Time.objects.filter(campeonato=obj)),
         'unidades': Unidade.objects.all(),
         'cup_managers': Funcionario.objects.all()
     }

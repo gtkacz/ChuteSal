@@ -101,6 +101,18 @@ input, select, option, input:valid {
     color: var(--tertiary) !important;
 }
 
+input:disabled, select:disabled, option:disabled {
+    border-color: gray !important;
+    background-color: transparent !important;
+    color: gray !important;
+}
+
+button:disabled {
+    background-color: gray !important;
+    border-color: gray !important;
+    color: var(--background) !important;
+}
+
 input:invalid {
     border-color:red !important;
     background-color: transparent !important;
@@ -115,12 +127,52 @@ input:invalid {
     align-items: flex-end !important;
 }
 
+.align-center {
+    align-items: center !important;
+}
+
+.align-baseline {
+    align-items: baseline !important;
+}
+
+.align-stretch {
+    align-items: stretch !important;
+}
+
+.align-space-between {
+    align-items: space-between !important;
+}
+
+.align-space-around {
+    align-items: space-around !important;
+}
+
+.align-space-evenly {
+    align-items: space-evenly !important;
+}
+
+.justify-center {
+    justify-content: center !important;
+}
+
 .justify-start {
     justify-content: flex-start !important;
 }
 
 .justify-end {
     justify-content: flex-end !important;
+}
+
+.justify-space-between {
+    justify-content: space-between !important;
+}
+
+.justify-space-around {
+    justify-content: space-around !important;
+}
+
+.justify-space-evenly {
+    justify-content: space-evenly !important;
 }
 
 .icon {
