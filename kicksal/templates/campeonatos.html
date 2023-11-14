@@ -19,7 +19,7 @@
 
         {%endif%}
 
-        <button class="mt-2">
+        <button class="mt-2" id="create_button">
             <a href="/edit_championship?pk={{ campeonato.id }}">
                 Editar Campeonato
             </a>
@@ -127,6 +127,13 @@
     </div>
 </main>
 <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const is_admin = urlParams.get('admin');
+
+    if (!is_admin) {
+        document.getElementById('create_button').style.display = 'none'
+    }
+
     function submitForm() {
         const fname = document.getElementById("fname").value;
         const alias = document.getElementById("alias").value;

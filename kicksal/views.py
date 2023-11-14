@@ -22,7 +22,7 @@ def campeonatos(request):
     def __get_status(obj: Campeonato) -> str:
         now = timezone.now().date()
 
-        return 'ongoing' if obj.periodo_jogos_comeco <= now and obj.periodo_jogos_fim >= now else 'upcoming' if obj.periodo_inscricao_comeco >= now else 'past'
+        return 'ongoing' if obj.periodo_jogos_comeco <= now and obj.periodo_jogos_fim >= now else 'upcoming' if obj.periodo_jogos_comeco >= now else 'past'
     
     def __get_posicao(obj: Campeonato) -> list[dict[Time, int]]:
         response = []
@@ -79,3 +79,14 @@ def create_championship(request):
     }
 
     return render(request, 'create_championship.html', context=context)
+
+def edit_championship(request):
+    obj = Campeonato.objects.get(pk=request.GET.get('pk'))
+
+    context = {
+        'campeonato': obj,
+        'unidades': Unidade.objects.all(),
+        'cup_managers': Funcionario.objects.all()
+    }
+
+    return render(request, 'edit_championship.html', context=context)
