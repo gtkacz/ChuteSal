@@ -128,7 +128,7 @@
 </main>
 <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const is_admin = urlParams.get('admin');
+    const is_admin = urlParams.get('is_admin');
 
     if (!is_admin) {
         document.getElementById('create_button').style.display = 'none'

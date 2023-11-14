@@ -62,13 +62,13 @@
   </div>
 </main>
 <script>
-  const is_admin = true ? window.location.pathname.endsWith('admin') : false
+  const is_admin = true ? window.location.pathname.endsWith('is_admin') : false
 
   if (!is_admin) {
     document.getElementById('create_button').style.display = 'none'
   }
 
-  const url = is_admin ? '&admin=true' : '';
+  const url = is_admin ? '&is_admin=true' : '';
 
   document.getElementById('href-1').href = document.getElementById('href-1').href + url;
   document.getElementById('href-2').href = document.getElementById('href-2').href + url;
