@@ -11,22 +11,25 @@
   <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
   <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
   {% block sidebar %}
   <!-- insert default navigation text for every page -->
-  <div id="navbar-container" class="d-flex flex-column align-center justify-center mb-10">
+  <div id="navbar-container" class="d-flex align-center justify-center mb-10">
     <nav id="navbar" class="d-flex align-center justify-center">
       <a href="/" style="color: white !important;">ChuteSal</a>
       <img src="{% static 'img/futsal_icon_white.png' %}" alt="ChuteSal" class="icon">
     </nav>
+    <a href="/is_admin" class="mr-2 href-a">Admin</a>
   </div>
   {% endblock %}
   {% block content %}
   <!-- default content text (typically empty) -->
   {% endblock %}
 </body>
+
 </html>

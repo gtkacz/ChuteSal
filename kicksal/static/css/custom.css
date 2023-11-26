@@ -41,6 +41,16 @@ h6 {
     font-family: 'Rubik', sans-serif !important;
 }
 
+.href-a {
+    font-family: 'Rubik', sans-serif !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    color: orange !important;
+    position: absolute;
+    right: 0;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
 .d-flex {
     display: flex !important;
 }
@@ -87,7 +97,7 @@ button {
     font-weight: 500 !important;
 }
 
-button > a {
+button>a {
     color: var(--quaternary) !important;
     text-transform: uppercase !important;
     font-family: 'Rubik', sans-serif !important;
@@ -95,13 +105,18 @@ button > a {
     text-decoration: none !important;
 }
 
-input, select, option, input:valid {
+input,
+select,
+option,
+input:valid {
     border-color: var(--tertiary) !important;
     background-color: transparent !important;
     color: var(--tertiary) !important;
 }
 
-input:disabled, select:disabled, option:disabled {
+input:disabled,
+select:disabled,
+option:disabled {
     border-color: gray !important;
     background-color: transparent !important;
     color: gray !important;
@@ -114,9 +129,42 @@ button:disabled {
 }
 
 input:invalid {
-    border-color:red !important;
+    border-color: red !important;
     background-color: transparent !important;
-    color:red !important;
+    color: red !important;
+}
+
+.select-editable {
+    position: relative;
+    background-color: inherit !important;
+    border: inherit !important;
+    width: inherit !important;
+    height: inherit !important;
+}
+
+.select-editable select {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: inherit !important;
+    border: inherit !important;
+    width: inherit !important;
+    margin: 0;
+}
+
+.select-editable input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: inherit !important;
+    padding: inherit !important;
+    font-size: inherit !important;
+    border: inherit !important;
+}
+
+.select-editable select:focus,
+.select-editable input:focus {
+    outline: inherit !important;
 }
 
 .align-start {

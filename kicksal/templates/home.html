@@ -62,7 +62,7 @@
   </div>
 </main>
 <script>
-  const is_admin = true ? window.location.pathname.endsWith('is_admin') : false
+  const is_admin = true ? window.location.pathname.includes('is_admin') : false
 
   if (!is_admin) {
     document.getElementById('create_button').style.display = 'none'

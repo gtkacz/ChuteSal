@@ -126,6 +126,9 @@ class Jogo(models.Model):
         if self.data < self.campeonato.periodo_jogos_comeco or self.data > self.campeonato.periodo_jogos_fim:
             raise ValueError(
                 'A data do jogo deve estar dentro do período de jogos do campeonato.')
+        
+        if self.quadra is None:
+            self.quadra = Quadra.objects.filter(unidade=self.campeonato.unidade).first()
 
         return super().save(*args, **kwargs)
 

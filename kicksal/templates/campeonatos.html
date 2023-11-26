@@ -103,6 +103,7 @@
                     {% for x in times %}
                     <option value="{{ x.id }}">{{ x.nome }}</option>
                     {% endfor %}
+                    <option value="criar_time">+ Criar</option>
                 </select><br><br>
                 <button class="w-100 mt-3 mb-10" onclick="submitForm()">Enviar</button>
             </div>
@@ -131,22 +132,50 @@
     const is_admin = urlParams.get('is_admin');
 
     if (!is_admin) {
-        document.getElementById('create_button').style.display = 'none'
+        document.getElementById('create_button').style.display = 'none';
     }
 
-    function submitForm() {
+    async function submitForm() {
         const fname = document.getElementById("fname").value;
         const alias = document.getElementById("alias").value;
         const phone = document.getElementById("phone").value;
         const bday = document.getElementById("bday").value;
         const team = document.getElementById("team").value;
 
+        let new_team_id = undefined;
+
+        if (team === 'criar_time') {
+            const team_name = document.getElementById("create_team").value;
+            const host = window.location.host;
+            const url = `http://${host}/api/times/`;
+
+            const headers = {
+                "Content-Type": "application/json",
+                "Access-Control-Origin": "*"
+            }
+
+            const data = {
+                "nome": team_name,
+                "campeonato": {{ campeonato.id }}
+            }
+
+            await fetch(url, {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify(data)
+            }).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                new_team_id = data.id;
+            });
+        }
+
         const data = {
             "nome": fname,
             "apelido": alias,
             "celular": phone,
             "data_nascimento": bday,
-            "time": team
+            "time": team != 'criar_time' ? team : new_team_id
         }
 
         const host = window.location.host;
@@ -170,5 +199,12 @@
                 location.reload();
             });
     }
+
+    document.getElementById("team").addEventListener("change", function () {
+        if (this.value == "criar_time") {
+            document.getElementById('team').style.display = 'none';
+            document.getElementById('team').insertAdjacentHTML('afterend', '<input type="text" id="create_team" name="create_team" class="w-100" placeholder="Nome do time">');
+        }
+    });
 </script>
 {% endblock %}
